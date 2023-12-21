@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './App.css';
+import '../style.css';
 
 function App() {
     const [signs, setSigns] = useState([]);
@@ -10,5 +10,12 @@ function App() {
     });
     return <h1>Hello, World</h1>;
 }
+
+
+
+
+
+
+
 
 export default App;

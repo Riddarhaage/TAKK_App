@@ -19,6 +19,14 @@ namespace TAKK_App.Server
             app.UseDefaultFiles();
             app.UseStaticFiles();
 
+            //TODO: SET CORS POLICY
+            app.UseCors(policy =>
+            {
+                policy.AllowAnyHeader();
+                policy.AllowAnyMethod();
+                policy.AllowAnyOrigin();
+            });
+
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
@@ -36,6 +44,7 @@ namespace TAKK_App.Server
             app.MapFallbackToFile("/index.html");
 
             app.Run();
+
         }
     }
 }

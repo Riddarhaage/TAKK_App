@@ -1,0 +1,6 @@
+@TAKK_App.Server_HostAddress = http://localhost:5032
+
+GET {{TAKK_App.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAKK_App.Server", "TAKK_App.Server\TAKK_App.Server.csproj", "{CCA6BA73-D3D3-4B6D-94CC-57E7FB281F03}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "takk_app.client", "takk_app.client\takk_app.client.esproj", "{418340CB-1DCF-4CE8-A8A1-0A59A45B5B5A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CCA6BA73-D3D3-4B6D-94CC-57E7FB281F03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCA6BA73-D3D3-4B6D-94CC-57E7FB281F03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCA6BA73-D3D3-4B6D-94CC-57E7FB281F03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCA6BA73-D3D3-4B6D-94CC-57E7FB281F03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{418340CB-1DCF-4CE8-A8A1-0A59A45B5B5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{418340CB-1DCF-4CE8-A8A1-0A59A45B5B5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{418340CB-1DCF-4CE8-A8A1-0A59A45B5B5A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{418340CB-1DCF-4CE8-A8A1-0A59A45B5B5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{418340CB-1DCF-4CE8-A8A1-0A59A45B5B5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{418340CB-1DCF-4CE8-A8A1-0A59A45B5B5A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0DF0BB60-88F8-4941-B30A-80F0F266420B}
+	EndGlobalSection
+EndGlobal

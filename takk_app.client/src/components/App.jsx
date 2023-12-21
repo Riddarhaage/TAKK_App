@@ -8,7 +8,17 @@ function App() {
             .then(res => res.json())
             .then(data => setSigns(data));
     });
-    return <h1>Hello, World</h1>;
+    return (
+        <div>
+            <div className="header">
+                <h1>Signs</h1>
+                <button className="btn">Add Sign</button>
+            </div>
+            <div className="container">
+                    {signs.map(sign => <div className="cards" key={sign.id}><img src={sign.imgUrl} /></div>)}
+            </div>
+        </div>
+    )
 }
 
 

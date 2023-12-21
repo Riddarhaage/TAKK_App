@@ -19,6 +19,7 @@ namespace TAKK_App.Server
             app.UseDefaultFiles();
             app.UseStaticFiles();
 
+            //TODO: Research if this is the best way to enable CORS
             app.UseCors(policy =>
             {
                 policy.AllowAnyHeader();

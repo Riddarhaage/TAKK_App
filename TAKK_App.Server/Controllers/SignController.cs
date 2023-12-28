@@ -13,48 +13,48 @@ namespace TAKK_App.Server.Controllers
             new Sign
             {
                 Id = 1,
-                Title = "Sign 1",
-                ImgUrl = "https://via.placeholder.com/150",
+                Title = "abborre",
+                ImgUrl = "https://localhost:7051/Sign/images/abborre.svg",
                 Category = "Category 1",
                 Description = "Description 1"
             },
             new Sign
             {
                 Id = 2,
-                Title = "Sign 2",
-                ImgUrl = "https://via.placeholder.com/150",
+                Title = "A (bokstav)",
+                ImgUrl = "https://localhost:7051/Sign/images/A%20(bokstav).svg",
                 Category = "Category 2",
                 Description = "Description 2"
             },
             new Sign
             {
                 Id = 3,
-                Title = "Sign 3",
-                ImgUrl = "https://via.placeholder.com/150",
+                Title = "addition",
+                ImgUrl = "https://localhost:7051/Sign/images/addition.svg",
                 Category = "Category 3",
                 Description = "Description 3"
             },
             new Sign
             {
                 Id = 4,
-                Title = "Sign 4",
-                ImgUrl = "https://via.placeholder.com/150",
+                Title = "adjektiv",
+                ImgUrl = "https://localhost:7051/Sign/images/adjektiv.svg",
                 Category = "Category 4",
                 Description = "Description 4"
             },
             new Sign
             {
                 Id = 5,
-                Title = "Sign 5",
-                ImgUrl = "https://via.placeholder.com/150",
+                Title = "adress",
+                ImgUrl = "https://localhost:7051/Sign/images/adress.svg",
                 Category = "Category 5",
                 Description = "Description 5"
             },
             new Sign
             {
                 Id = 6,
-                Title = "Sign 6",
-                ImgUrl = "https://via.placeholder.com/150",
+                Title = "advent 1",
+                ImgUrl = "https://localhost:7051/Sign/images/advent%201.svg",
                 Category = "Category 6",
                 Description = "Description 6"
             },
@@ -227,6 +227,34 @@ namespace TAKK_App.Server.Controllers
         {
             return Ok(Signs);
         }
+
+        [HttpPost("upload")]
+        public async Task<IActionResult> UploadFile(IFormFile file)
+        {
+            var filePath = Path.Combine("wwwroot/images", file.FileName);
+
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
+            return Ok(new { filePath });
+        }
+
+        [HttpGet("images/{filename}")]
+        public async Task<IActionResult> GetImage(string filename)
+        {
+            var filePath = Path.Combine("wwwroot/images", filename);
+            var memory = new MemoryStream();
+            using (var stream = new FileStream(filePath, FileMode.Open))
+            {
+                await stream.CopyToAsync(memory);
+            }
+            memory.Position = 0;
+            return File(memory, "image/svg+xml", Path.GetFileName(filePath)); // Adjust content type based on file
+        }
+
+
 
         [HttpPost]
         public IActionResult Post(IFormFile file)

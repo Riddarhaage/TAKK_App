@@ -28,10 +28,17 @@ body{
     align-items: center;
     display: flex;
     flex-wrap: wrap;
+
+    img{
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 5%;
+       }
 }
 
 .container > div {
-    margin: 1rem;
+    margin: 1rem
 }
 
 .header{

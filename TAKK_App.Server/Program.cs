@@ -36,6 +36,8 @@ namespace TAKK_App.Server
 
             app.UseHttpsRedirection();
 
+            app.UseRouting();
+
             app.UseAuthorization();
 
 

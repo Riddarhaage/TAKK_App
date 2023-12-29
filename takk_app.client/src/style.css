@@ -4,11 +4,11 @@
     box-sizing: border-box;
 }
 
-:root{
-    --primary-color: #9784c7;
-    --secondary-color: #f9f9f9;
-    --dark-color: #1c1c1c;
-    --light-color: #f7f7f7;
+:root {
+    --primary-color: #324a5f;
+    --secondary-color: #CBD8E4;
+    --dark-color: #0c1821;
+    --light-color: #ccc9dc;
     --danger-color: #f44336;
     --success-color: #4caf50;
     --warning-color: #ff9800;
@@ -27,18 +27,24 @@ body{
     justify-content: space-evenly;
     align-items: center;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap
+}
 
-    img{
-        width: 150px;
-        height: 150px;
-        object-fit: cover;
-        border-radius: 5%;
-       }
+.container img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5%;
 }
 
 .container > div {
-    margin: 1rem
+    margin: 0.5rem
+}
+.signTitle{
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 0.5rem;
 }
 
 .header{

@@ -12,10 +12,13 @@ function App() {
         <div>
             <div className="header">
                 <h1>Signs</h1>
-                <button className="btn">Add Sign</button>
             </div>
             <div className="container">
-                    {signs.map(sign => <div className="cards" key={sign.id}><img src={sign.imgUrl} /></div>)}
+                {signs.map(sign =>
+                    <div className="cards" key={sign.id}>
+                        <img src={sign.imgUrl} />
+                        <h2 className="signTitle">{sign.title}</h2>
+                    </div>)}
             </div>
         </div>
     )

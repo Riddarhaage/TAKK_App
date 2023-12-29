@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import '../style.css';
+import SignCard from './SignCard';
 
 function App() {
     const [signs, setSigns] = useState([]);
@@ -13,15 +14,10 @@ function App() {
             <div className="header">
                 <h1>Signs</h1>
             </div>
-            <div className="container">
-                {signs.map(sign =>
-                    <div className="cards" key={sign.id}>
-                        <img src={sign.imgUrl} />
-                        <h2 className="signTitle">{sign.title}</h2>
-                    </div>)}
-            </div>
+            <SignCard signArray={signs} />
         </div>
     )
+
 }
 
 

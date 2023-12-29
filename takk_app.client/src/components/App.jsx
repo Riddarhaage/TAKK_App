@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import '../style.css';
 import SignCard from './SignCard';
+import Header from './Header';
 
 function App() {
     const [signs, setSigns] = useState([]);
@@ -11,9 +12,7 @@ function App() {
     });
     return (
         <div>
-            <div className="header">
-                <h1>Signs</h1>
-            </div>
+            <Header />
             <SignCard signArray={signs} />
         </div>
     )

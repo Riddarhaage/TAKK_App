@@ -5,6 +5,8 @@ import Header from './Header';
 
 function App() {
     const [signs, setSigns] = useState([]);
+    const [search, setSearch] = useState('');
+
     useEffect(() => {
         fetch('https://localhost:7051/Sign')
             .then(res => res.json())
@@ -12,8 +14,8 @@ function App() {
     });
     return (
         <div>
-            <Header />
-            <SignCard signArray={signs} />
+            <Header searchTerm={search} setSearch={setSearch} />
+            <SignCard signArray={signs} searchTerm={search} />
         </div>
     )
 

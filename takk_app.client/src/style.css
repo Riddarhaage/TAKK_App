@@ -13,7 +13,7 @@
     --success-color: #4caf50;
     --warning-color: #ff9800;
     --info-color: #2196f3;
-    --border-radius: 0.25rem;
+    --border-radius: 0.50rem;
     --transition: all 0.3s linear;
 }
 
@@ -34,7 +34,7 @@ body{
     width: 150px;
     height: 150px;
     object-fit: cover;
-    border-radius: 5%;
+    border-radius: var(--border-radius);
 }
 
 .container > div {
@@ -45,6 +45,17 @@ body{
     font-weight: 700;
     text-align: center;
     margin: 0.5rem;
+}
+
+.search-input input{
+    padding: 0.24rem;
+    border-radius: var(--border-radius);
+    border: none;
+    margin: 0.5rem;
+    width: 100%;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: var(--transition);
 }
 
 .header{

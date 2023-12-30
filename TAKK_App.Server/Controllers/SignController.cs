@@ -16,7 +16,7 @@ namespace TAKK_App.Server.Controllers
                 Title = "abborre",
                 ImgUrl = "https://localhost:7051/Sign/images/abborre.svg",
                 Category = "Category 1",
-                Description = "Description 1"
+                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas orci libero, aliquam a semper quis, iaculis et ex. Integer eget."
             },
             new Sign
             {

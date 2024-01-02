@@ -1,9 +1,28 @@
 function SignCard(props) {
-    const { signArray, searchTerm, onSignClick } = props;
+    const { signArray, searchTerm, charFilter, onSignClick } = props;
 
-    const filteredSigns = searchTerm
-        ? signArray.filter(sign => sign.title.toLowerCase().includes(searchTerm.toLowerCase()))
-        : signArray;
+    //const filteredSigns = searchTerm
+    //    ? signArray.filter(sign => sign.title.toLowerCase().includes(searchTerm.toLowerCase()))
+    //    : signArray;
+
+    const filteredSigns = signArray.filter(sign => {
+        const titleLower = sign.title.toLowerCase();
+
+        if (charFilter !== '') {
+            if (charFilter === '#') {
+                return /^[0-9]/.test(sign.title);
+            }
+            else {
+                return titleLower.startsWith(charFilter.toLowerCase());
+            }
+        }
+        else if (searchTerm.length > 0) {
+            return titleLower.includes(searchTerm.toLowerCase());
+        }
+        else {
+            return sign;
+        }
+    })
 
     return (
         <div className="container">

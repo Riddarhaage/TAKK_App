@@ -1,12 +1,13 @@
 import SearchInput from "./SearchInput";
+import CharacterFilter from "./CharacterFilter";
 
 function Header(props) {
-    const searchTerm = props.searchTerm;
-    const setSearch = props.setSearch;
+    const {searchTerm ,setSearch,setCharFilter} = props;
 
     return <div className="header">
         <h1>Signs</h1>
         <SearchInput searchTerm={searchTerm} setSearch={setSearch} />
+        <CharacterFilter setCharFilter={setCharFilter} />
     </div>;
 }
 

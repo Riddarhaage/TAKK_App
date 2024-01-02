@@ -1,4 +1,4 @@
-﻿*{
+﻿* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -112,4 +112,21 @@ body{
     border-radius: var(--border-radius);
     cursor: pointer;
     transition: var(--transition);
+}
+
+.charButtons {
+    margin: 0.5rem;
+    padding: 0.1rem 0.5rem;
+    border-radius: 5px;
+    background: #ffffff7e;
+    color: black;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.charButtons:hover {
+    background: #ffffff;
+    color: black;
+}
 }

@@ -84,8 +84,7 @@ body{
     z-index: 10; /* Ensure it's below the description card */
 }
 
-
-.search-input{
+.search-input {
     margin-right: 1rem;
 }
 
@@ -120,18 +119,19 @@ body{
     transition: var(--transition);
 }
 
-.charButtons {
-    margin: 0.5rem;
-    padding: 0.1rem 0.5rem;
-    border-radius: 5px;
-    background: #ffffff7e;
-    color: black;
-    font-size: 1.1rem;
-    font-weight: bold;
-    text-align: center;
+.char-dropdown-container {
+    /* Adjust placement and styling as needed */
 }
 
-.charButtons:hover {
-    background: #ffffff;
-    color: black;
+.charDropdown {
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--secondary-color);
+    font-size: 1rem;
+    cursor: pointer;
 }
+
+    /* Style for dropdown options if needed */
+    .charDropdown option {
+        padding: 0.5rem;
+    }

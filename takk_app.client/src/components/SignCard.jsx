@@ -6,6 +6,7 @@ function SignCard(props) {
     //    : signArray;
 
     const filteredSigns = signArray.filter(sign => {
+
         const titleLower = sign.title.toLowerCase();
 
         if (charFilter !== '') {

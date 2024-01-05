@@ -72,6 +72,8 @@ body{
         display: block;
         margin: auto;
         object-fit: cover;
+        
+        animation: fadeIn 1s;
     }
 
 .overlay {
@@ -82,6 +84,8 @@ body{
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
     z-index: 10; /* Ensure it's below the description card */
+
+    animation: fadeIn 0.5s;
 }
 
 .search-input {
@@ -134,4 +138,22 @@ body{
     /* Style for dropdown options if needed */
     .charDropdown option {
         padding: 0.5rem;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
     }

@@ -25,7 +25,6 @@ body{
 
 .container {
     justify-content: space-evenly;
-    align-items: center;
     display: flex;
     flex-wrap: wrap
 }
@@ -103,15 +102,20 @@ body{
     transition: var(--transition);
 }
 
-.header{
+.header {
     position: sticky;
     top: 0;
     background-color: var(--dark-color);
     padding: 1rem;
     display: flex;
-    justify-content: left;
+    justify-content: space-between; /* Updated this line */
     align-items: center;
     width: 100%;
+}
+
+.left-container{
+    display: flex;
+    align-items: center;
 }
 
 .btn {

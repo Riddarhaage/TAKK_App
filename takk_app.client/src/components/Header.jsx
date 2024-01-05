@@ -6,10 +6,12 @@ function Header(props) {
     const {searchTerm ,setSearch,setCharFilter} = props;
 
     return <div className="header">
-        <Hamburger rounded size={24} duration={0.2} />
-        <h1>Tecken</h1>
-        <SearchInput searchTerm={searchTerm} setSearch={setSearch} />
-        <CharacterFilter setCharFilter={setCharFilter} />
+        <div className="left-container">
+            <h1>Tecken</h1>
+            <SearchInput searchTerm={searchTerm} setSearch={setSearch} />
+            <CharacterFilter setCharFilter={setCharFilter} />
+        </div>
+        <Hamburger className="hamburger" rounded size={24} duration={0.2} />
     </div>;
 }
 

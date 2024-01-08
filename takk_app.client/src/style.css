@@ -118,6 +118,11 @@ body{
     align-items: center;
 }
 
+.right-container{
+    display: flex;
+    align-items: center;
+}
+
 .btn {
     padding: 0.5rem 1rem;
     border: none;
@@ -144,6 +149,10 @@ body{
     padding: 0.5rem;
 }
 
+.header-menu-item {
+    cursor: pointer;
+    margin: 0.5rem;
+}
 @keyframes fadeIn {
     from {
         opacity: 0;

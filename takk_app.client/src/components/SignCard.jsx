@@ -1,10 +1,6 @@
 function SignCard(props) {
     const { signArray, searchTerm, charFilter, onSignClick } = props;
 
-    //const filteredSigns = searchTerm
-    //    ? signArray.filter(sign => sign.title.toLowerCase().includes(searchTerm.toLowerCase()))
-    //    : signArray;
-
     const filteredSigns = signArray.filter(sign => {
 
         const titleLower = sign.title.toLowerCase();

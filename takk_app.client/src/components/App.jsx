@@ -11,15 +11,26 @@ function App() {
     const [charFilter, setCharFilter] = useState('');
     const [selectedSign, setSelectedSign] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [showMeaningBuilder, setShowMeaningBuilder] = useState(false);
 
     useEffect(() => {
         fetch('https://localhost:7051/Sign')
-            .then(res => res.json())
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json();
+            })
             .then(data => {
-                setSigns(data)
+                setSigns(data);
+                setIsLoading(false);
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
                 setIsLoading(false);
             });
     }, []);
+
 
     function handleSignClick(sign) {
         setSelectedSign(sign);
@@ -31,14 +42,27 @@ function App() {
 
     return (
         <div className="container">
-            <Header searchTerm={search} setSearch={setSearch} setCharFilter={ setCharFilter} />
+            <Header
+                searchTerm={search}
+                setSearch={setSearch}
+                setCharFilter={setCharFilter}
+                showMeaningBuilder={showMeaningBuilder}
+                setShowMeaningBuilder={setShowMeaningBuilder}
+            />
             {selectedSign && <DescriptionCard sign={selectedSign} onClose={handleCloseDescription} />}
-            {/*TODO: Fix the MeaningBuilder Component*/ }
-            {/*<MeaningBuilder signArray={signs} />*/}
-            {isLoading ? <h2>Loading...</h2> :
-                <SignCard signArray={signs} searchTerm={search} charFilter={charFilter} onSignClick={handleSignClick} />}
+            {isLoading ?
+                <h2>Loading...</h2> :
+                showMeaningBuilder ?
+                    <MeaningBuilder signArray={signs} /> :
+                    <SignCard
+                        signArray={signs}
+                        searchTerm={search}
+                        charFilter={charFilter}
+                        onSignClick={handleSignClick}
+                    />
+            }
         </div>
-    )
+    );
 
 }
 

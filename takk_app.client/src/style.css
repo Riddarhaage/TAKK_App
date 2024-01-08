@@ -23,6 +23,10 @@ body{
     color: var(--secondary-color);
 }
 
+p{
+    font-weight: 700;
+}
+
 .container {
     justify-content: space-evenly;
     display: flex;
@@ -88,15 +92,14 @@ body{
 }
 
 .search-input {
-    margin-right: 1rem;
+    margin: 0 1rem;
 }
 
 .search-input input {
     padding: 0.24rem;
     border-radius: var(--border-radius);
     border: none;
-    margin: 0.5rem;
-    width: 100%;
+    width: 85%;
     font-weight: 700;
     font-size: 1rem;
     transition: var(--transition);
@@ -113,10 +116,18 @@ body{
     width: 100%;
 }
 
-.left-container{
+.left-container {
     display: flex;
-    align-items: center;
+    flex-direction: column; /* Stack children vertically */
+    align-items: stretch; /* Stretch children across the width */
 }
+
+.top-left-container, .bottom-left-container {
+    width: 100%; /* Ensure they take the full width */
+    display: flex;
+    align-items: center; /* Adjust as needed */
+}
+
 
 .right-container{
     display: flex;
@@ -136,8 +147,9 @@ body{
     /* Adjust placement and styling as needed 
 }*/ 
 
-.charDropdown {
-    padding: 0.15rem;
+.dropdown {
+    padding: 0.1rem;
+    margin: 0 0.9rem;
     border-radius: var(--border-radius);
     border: 1px solid var(--secondary-color);
     font-size: 1rem;
@@ -146,18 +158,8 @@ body{
 }
 
 /* Style for dropdown options if needed */
-.charDropdown option {
+.dropdown option {
     padding: 0.5rem;
-}
-
-.categoryDropdown {
-    margin-left: 0.5rem;
-    padding: 0.15rem;
-    border-radius: var(--border-radius);
-    border: 1px solid var(--secondary-color);
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
 }
 
 .header-menu-item {

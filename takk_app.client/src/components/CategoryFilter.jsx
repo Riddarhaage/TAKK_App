@@ -10,7 +10,7 @@ function CategoryFilter(props) {
     
     return (
         <div className="category-dropdown-container">
-        <select onChange={handleCategoryChange} className="categoryDropdown">
+        <select onChange={handleCategoryChange} className="dropdown">
             <option value="">Alla</option>
             {categories.map((category) => (
             <option key={category} value={category}>

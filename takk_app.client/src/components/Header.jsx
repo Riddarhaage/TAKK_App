@@ -26,13 +26,19 @@ function Header(props) {
     return (
         <div className="header">
             <div className="left-container">
-                <h1>Tecken</h1>
-                <SearchInput searchTerm={searchTerm} setSearch={setSearch} />
-                <CharacterFilter setCharFilter={setCharFilter} />
-                <CategoryFilter setCategoryFilter={setCategoryFilter} setCharFilter={setCharFilter}/>
+                <div className="top-left-container">
+                    <h1>Tecken</h1>
+                    <SearchInput searchTerm={searchTerm} setSearch={setSearch} />
+                </div>
+                <div className="bottom-left-container">
+                    <p>Filter</p>
+                    <CharacterFilter setCharFilter={setCharFilter} />
+                    <p>Kategori</p>
+                    <CategoryFilter setCategoryFilter={setCategoryFilter} setCharFilter={setCharFilter} />
+                </div>
             </div>
             <div className="right-container">
-                {windowWidth <= 900 ? 
+                {windowWidth <= 810 ? 
                     <Hamburger className="hamburger" rounded size={24} duration={0.2} /> :
                     <>
                         {!showMeaningBuilder ? <HeaderMenuItem text="Bygg Mening" onClick={() => setShowMeaningBuilder(true)} /> :

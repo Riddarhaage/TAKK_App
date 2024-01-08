@@ -9,6 +9,7 @@ function App() {
     const [signs, setSigns] = useState([]);
     const [search, setSearch] = useState('');
     const [charFilter, setCharFilter] = useState('');
+    const [categoryFilter, setCategoryFilter] = useState([]);
     const [selectedSign, setSelectedSign] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [showMeaningBuilder, setShowMeaningBuilder] = useState(false);
@@ -47,6 +48,7 @@ function App() {
                 setSearch={setSearch}
                 setCharFilter={setCharFilter}
                 showMeaningBuilder={showMeaningBuilder}
+                setCategoryFilter={setCategoryFilter}
                 setShowMeaningBuilder={setShowMeaningBuilder}
             />
             {selectedSign && <DescriptionCard sign={selectedSign} onClose={handleCloseDescription} />}
@@ -58,6 +60,7 @@ function App() {
                         signArray={signs}
                         searchTerm={search}
                         charFilter={charFilter}
+                        categoryFilter={categoryFilter}
                         onSignClick={handleSignClick}
                     />
             }

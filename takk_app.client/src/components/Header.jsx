@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import SearchInput from "./SearchInput";
 import CharacterFilter from "./CharacterFilter";
+import CategoryFilter from './CategoryFilter';
 import Hamburger from 'hamburger-react';
 import HeaderMenuItem from "./HeaderMenuItem";
 
 //TODO: Add menu that pops up when hamburger is clicked
 
 function Header(props) {
-    const {searchTerm ,setSearch,setCharFilter, showMeaningBuilder, setShowMeaningBuilder} = props;
+    const {searchTerm ,setSearch,setCharFilter,setCategoryFilter, showMeaningBuilder, setShowMeaningBuilder} = props;
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     useEffect(() => {
@@ -28,6 +29,7 @@ function Header(props) {
                 <h1>Tecken</h1>
                 <SearchInput searchTerm={searchTerm} setSearch={setSearch} />
                 <CharacterFilter setCharFilter={setCharFilter} />
+                <CategoryFilter setCategoryFilter={setCategoryFilter} setCharFilter={setCharFilter}/>
             </div>
             <div className="right-container">
                 {windowWidth <= 900 ? 

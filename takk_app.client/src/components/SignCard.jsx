@@ -1,5 +1,5 @@
 function SignCard(props) {
-    const { signArray, searchTerm, charFilter, onSignClick } = props;
+    const { signArray, searchTerm, charFilter, categoryFilter, onSignClick } = props;
 
     const filteredSigns = signArray.filter(sign => {
 
@@ -15,6 +15,9 @@ function SignCard(props) {
         }
         else if (searchTerm.length > 0) {
             return titleLower.includes(searchTerm.toLowerCase());
+        }
+        else if (categoryFilter !== '') {
+            return sign.categories && sign.categories.includes(categoryFilter);
         }
         else {
             return sign;

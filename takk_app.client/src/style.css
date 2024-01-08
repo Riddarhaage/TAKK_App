@@ -132,9 +132,9 @@ body{
     transition: var(--transition);
 }
 
-.char-dropdown-container {
-    /* Adjust placement and styling as needed */
-}
+/* .char-dropdown-container {
+    /* Adjust placement and styling as needed 
+}*/ 
 
 .charDropdown {
     padding: 0.5rem;

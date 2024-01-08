@@ -137,16 +137,27 @@ body{
 }*/ 
 
 .charDropdown {
-    padding: 0.5rem;
+    padding: 0.15rem;
     border-radius: var(--border-radius);
     border: 1px solid var(--secondary-color);
     font-size: 1rem;
+    font-weight: 700;
     cursor: pointer;
 }
 
 /* Style for dropdown options if needed */
 .charDropdown option {
     padding: 0.5rem;
+}
+
+.categoryDropdown {
+    margin-left: 0.5rem;
+    padding: 0.15rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--secondary-color);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
 }
 
 .header-menu-item {

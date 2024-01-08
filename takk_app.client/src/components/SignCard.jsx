@@ -16,7 +16,7 @@ function SignCard(props) {
         else if (searchTerm.length > 0) {
             return titleLower.includes(searchTerm.toLowerCase());
         }
-        else if (categoryFilter !== '') {
+        else if (categoryFilter.length > 0) {
             return sign.categories && sign.categories.includes(categoryFilter);
         }
         else {

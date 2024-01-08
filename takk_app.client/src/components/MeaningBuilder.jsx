@@ -24,6 +24,13 @@ function MeaningBuilder(props) {
             if (matchedSign) {
                 signs.push(matchedSign);
             }
+            else
+            {
+                signs.push({
+                    title: potentialMatch,
+                    imgUrl: "https://fakeimg.pl/150x150/3f5a75/cccccc?font=bebas&text=" + potentialMatch
+                });
+            }
         }
 
         return signs;

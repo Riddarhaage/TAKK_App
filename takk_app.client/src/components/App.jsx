@@ -51,7 +51,7 @@ function App() {
             />
             {selectedSign && <DescriptionCard sign={selectedSign} onClose={handleCloseDescription} />}
             {isLoading ?
-                <h2>Loading...</h2> :
+                <h2>Laddar...</h2> :
                 showMeaningBuilder ?
                     <MeaningBuilder signArray={signs} /> :
                     <SignCard

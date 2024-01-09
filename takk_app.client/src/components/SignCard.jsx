@@ -28,7 +28,7 @@ function SignCard(props) {
         <div className="container">
             {filteredSigns.map(sign => (
                 <div className="cards" key={sign.id} onClick={() => onSignClick(sign)}>
-                    <img src={sign.imgUrl} alt={sign.title} />
+                    <img src={sign.imgUrl} alt={sign.title} loading="lazy" />
                     <h2 className="signTitle">{sign.title}</h2>
                 </div>
             ))}

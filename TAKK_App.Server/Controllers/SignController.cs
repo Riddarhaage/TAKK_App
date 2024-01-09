@@ -237,15 +237,20 @@ namespace TAKK_App.Server.Controllers
             new Sign
             {
                 Id = 32,
-                Title = "Sign 32",
                 ImgUrl = "https://localhost:7051/Sign/images/adventskalender.svg",
                 Categories = ["Övrigt"],
             },
         };
 
+
         [HttpGet]
         public IActionResult Get()
         {
+            foreach(var sign in Signs)
+            {
+                sign.SetTitleFromImgUrl();
+            }
+
             return Ok(Signs);
         }
 

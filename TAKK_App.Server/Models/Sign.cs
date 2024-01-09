@@ -17,5 +17,15 @@ namespace TAKK_App.Server.Models
 
         public string[] Categories { get; set; }
         public string Description { get; set; }
+
+        public void SetTitleFromImgUrl()
+        {
+
+            if (!string.IsNullOrEmpty(ImgUrl))
+            {
+                Title = Path.GetFileNameWithoutExtension(ImgUrl);
+                Title = Title.Replace("%20", " ");
+            }
+        }
     }
 }

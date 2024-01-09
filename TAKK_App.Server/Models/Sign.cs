@@ -15,8 +15,8 @@ namespace TAKK_App.Server.Models
         [StringLength(500)]
         public string ImgUrl { get; set; }
 
-        public string[] Categories { get; set; }
-        public string Description { get; set; }
+        public string[]? Categories { get; set; }
+        public string? Description { get; set; }
 
         public void SetTitleFromImgUrl()
         {

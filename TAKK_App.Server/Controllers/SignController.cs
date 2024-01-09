@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using TAKK_App.Server.Models;
 
 namespace TAKK_App.Server.Controllers
@@ -8,6 +9,13 @@ namespace TAKK_App.Server.Controllers
     [ApiController]
     public class SignController : ControllerBase
     {
+        private readonly SignDbContext _context;
+
+        public SignController(SignDbContext context)
+        {
+            _context = context;
+        }
+
         private static readonly IEnumerable<Sign> Signs = new List<Sign>
         {
             new Sign
@@ -244,14 +252,15 @@ namespace TAKK_App.Server.Controllers
 
 
         [HttpGet]
-        public IActionResult Get()
+        public async Task<ActionResult<IEnumerable<Sign>>> GetItems()
         {
-            foreach(var sign in Signs)
-            {
-                sign.SetTitleFromImgUrl();
-            }
+            //foreach(var sign in Signs)
+            //{
+            //    sign.SetTitleFromImgUrl();
+            //}
 
-            return Ok(Signs);
+            //return Ok(Signs);
+            return await _context.Signs.ToListAsync();
         }
 
         [HttpPost("upload")]

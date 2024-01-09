@@ -1,4 +1,5 @@
 
+using Microsoft.EntityFrameworkCore;
 using TAKK_App.Server.Models;
 
 namespace TAKK_App.Server
@@ -16,6 +17,10 @@ namespace TAKK_App.Server
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            //TODO: Research if this is the best practice for adding a connection string
+            builder.Services.AddDbContext<SignDbContext>(options =>
+                           options.UseSqlServer("Server=LAPTOP-H6IIRGIU;Database=SignDB;Trusted_Connection=True;TrustServerCertificate=True;"));
 
             var app = builder.Build();
 

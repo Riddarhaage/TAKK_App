@@ -19,7 +19,7 @@ function MeaningBuilder(props) {
             }
 
             // TODO: Test this more once we have more signs
-            const matchedSign = signArray.find(sign => sign.title.toLowerCase().split(' ')[0].endsWith(potentialMatch));
+            const matchedSign = signArray.find(sign => sign.title.toLowerCase().split(' ')[0].startsWith(potentialMatch));
 
             if (matchedSign) {
                 signs.push(matchedSign);

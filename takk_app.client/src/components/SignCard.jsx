@@ -14,7 +14,7 @@ function SignCard(props) {
             }
         }
         else if (searchTerm.length > 0) {
-            return titleLower.includes(searchTerm.toLowerCase());
+            return titleLower.startsWith(searchTerm.toLowerCase());
         }
         else if (categoryFilter.length > 0) {
             return sign.categories && sign.categories.includes(categoryFilter);

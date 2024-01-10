@@ -1,40 +1,44 @@
 import React, { useEffect, useState } from 'react';
-import SignCard from './SignCard';
+import SignCard, {MeaningBuilderSignCard} from './SignCard';
 
 function MeaningBuilder(props) {
-    const { signArray } = props;
+    const { signArray, onSignClick } = props;
     const [meaning, setMeaning] = useState('');
     const [meaningArray, setMeaningArray] = useState([]);
 
     const findMatchingSigns = (input) => {
-        const words = input.split(' ');
+        const inputWords = input.toLowerCase().trim().split(' ');
         const signs = [];
-
-        for (let i = 0; i < words.length; i++) {
-            const potentialMatch = words[i].toLowerCase();
-
-            // Skip empty strings or strings with only spaces
-            if (!potentialMatch.trim()) {
+    
+        for (const word of inputWords) {
+            // Skip empty strings
+            if (!word.trim()) {
                 continue;
             }
-
-            // TODO: Test this more once we have more signs
-            const matchedSign = signArray.find(sign => sign.title.toLowerCase().split(' ')[0].startsWith(potentialMatch));
-
-            if (matchedSign) {
-                signs.push(matchedSign);
+    
+            let matchedSign = signArray.find(sign => sign.title.toLowerCase() === word);
+    
+            if (!matchedSign) {
+                // If no exact match, try finding a sign that starts with the word
+                matchedSign = signArray.find(sign => sign.title.toLowerCase().startsWith(word));
             }
-            else
-            {
+    
+            if (matchedSign) {
+                // Add the matched sign
+                signs.push(matchedSign);
+            } else {
+                // Create a placeholder for the unmatched word
                 signs.push({
-                    title: potentialMatch,
-                    imgUrl: "https://fakeimg.pl/150x150/3f5a75/cccccc?font=bebas&text=" + potentialMatch
+                    title: word,
+                    imgUrl: "https://fakeimg.pl/150x150/3f5a75/cccccc?font=bebas&text=" + word
                 });
             }
         }
-
+    
         return signs;
     };
+    
+
 
     useEffect(() => {
         const matchedSigns = findMatchingSigns(meaning);
@@ -42,22 +46,16 @@ function MeaningBuilder(props) {
     }, [meaning, signArray]);
 
     return (
-        <div className="search-input">
+        <div className="meaning-input">
             <h1>Bygg en mening</h1>
             <input
+                className='meaning-input'
                 type="text"
                 placeholder="Skriv en mening..."
                 value={meaning}
                 onChange={(e) => setMeaning(e.target.value)}
             />
-            <div className="container">
-                {meaningArray.map((sign, index) => (
-                    <div key={index} className="cards">
-                        <img src={sign.imgUrl} alt={sign.title} />
-                        <h2 className="signTitle">{sign.title.split(' ')[0]}</h2>
-                    </div>
-                ))}
-            </div>
+            <MeaningBuilderSignCard signArray={meaningArray} onSignClick={onSignClick}/>
         </div>
     );
 }

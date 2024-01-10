@@ -55,7 +55,7 @@ function App() {
             {isLoading ?
                 <h2>Laddar...</h2> :
                 showMeaningBuilder ?
-                    <MeaningBuilder signArray={signs} /> :
+                    <MeaningBuilder signArray={signs} onSignClick={handleSignClick} /> :
                     <SignCard
                         signArray={signs}
                         searchTerm={search}

@@ -35,6 +35,7 @@ p{
 
 .cards{
     cursor: pointer;
+    width: 10.5rem;
 }
 .cards img {
     width: 150px;
@@ -50,6 +51,7 @@ p{
     font-weight: 700;
     text-align: center;
     margin: 0.5rem;
+    /*don't let text go out of bound*/
 }
 
 .description-card {
@@ -204,6 +206,28 @@ p{
     cursor: pointer;
     margin: 0.5rem;
 }
+
+.add-category-container {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: left;
+    margin: 0.5rem;
+    /*place at bottom of parent*/
+    position: absolute;
+    bottom: 0;
+}
+
+.add-category-button {
+    cursor: pointer;
+    
+}
+
+.add-category-button:hover {
+    color: rgb(244, 240, 128);
+}
+
+
 
 @keyframes fadeIn {
     from {

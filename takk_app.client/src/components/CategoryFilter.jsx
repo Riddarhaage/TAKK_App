@@ -1,8 +1,8 @@
 import React from "react";
+const categories = ["Pronomen", "Personer", "Yrken", "Figurer", "Känslouttryck", "Föremål", "Djur", "Förflyttning", "Mat/Dryck", "Kroppsdelar", "Kläder", "Boende", "Väder", "Tid", "Siffror", "Färger", "Riktningar", "Frågeord", "Hälsningsfraser", "Förklaringar", "Övrigt"];
 
 function CategoryFilter(props) {
     const { setCategoryFilter, setCharFilter } = props;
-    const categories = ["Djur", "Bokstäver", "Kropp", "Mat", "Sport", "Övrigt"];
     
     const handleCategoryChange = (event) => {
         setCategoryFilter(event.target.value);
@@ -23,3 +23,4 @@ function CategoryFilter(props) {
     }
 
 export default CategoryFilter;
+export { categories};

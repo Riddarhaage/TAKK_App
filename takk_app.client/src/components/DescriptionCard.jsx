@@ -1,4 +1,5 @@
 import React from 'react';
+import AddCategoryToSign from './AddCategoryToSign';
 
 function DescriptionCard(props) {
 
@@ -14,6 +15,7 @@ function DescriptionCard(props) {
                 <h2 className="signTitle">{sign.title}</h2>
                 <h3 className="signDescriptionTitle">Formbeskrivning:</h3>
                     <p className="signDescription">{sign.description}</p>
+                <AddCategoryToSign />
             </div>
         </div>
     );

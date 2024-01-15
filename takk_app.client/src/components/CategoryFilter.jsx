@@ -1,5 +1,5 @@
 import React from "react";
-const categories = ["Pronomen", "Personer", "Yrken", "Figurer", "Känslouttryck", "Föremål", "Djur", "Förflyttning", "Mat/Dryck", "Kroppsdelar", "Kläder", "Boende", "Väder", "Tid", "Siffror", "Färger", "Riktningar", "Frågeord", "Hälsningsfraser", "Förklaringar", "Övrigt"];
+const categories = ["Pronomen", "Personer", "Yrken", "Verb", "Figurer","Diverse utrop", "Känslouttryck", "Föremål", "Djur", "Förflyttning", "Mat/Dryck", "Kroppsdelar", "Kläder", "Boende", "Väder", "Tid", "Siffror", "Färger", "Riktningar", "Frågeord", "Hälsningsfraser", "Förklaringar", "Övrigt"];
 
 function CategoryFilter(props) {
     const { setCategoryFilter, setCharFilter } = props;

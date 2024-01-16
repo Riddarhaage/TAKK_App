@@ -1,5 +1,7 @@
 function SignCard(props) {
-    const { signArray, searchTerm, charFilter, categoryFilter, onSignClick } = props;
+    const { signArray, searchTerm, charFilter, categoryFilter, onSignClick, currentPage, itemsPerPage } = props;
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
 
     const filteredSigns = signArray.filter(sign => {
 
@@ -24,9 +26,11 @@ function SignCard(props) {
         }
     })
 
+    const currentItems = filteredSigns.slice(startIndex, endIndex);
+
     return (
         <div className="container">
-            {filteredSigns.map(sign => (
+            {currentItems.map(sign => (
                 <div className="cards" key={sign.id} onClick={() => onSignClick(sign)}>
                     <img src={sign.imgUrl} alt={sign.title} loading="lazy" />
                     <h2 className="signTitle">{sign.title}</h2>

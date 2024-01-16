@@ -7,6 +7,8 @@ import MeaningBuilder from './MeaningBuilder';
 
 function App() {
     const [signs, setSigns] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage, setItemsPerPage] = useState(80);
     const [search, setSearch] = useState('');
     const [charFilter, setCharFilter] = useState('');
     const [categoryFilter, setCategoryFilter] = useState([]);
@@ -15,7 +17,7 @@ function App() {
     const [showMeaningBuilder, setShowMeaningBuilder] = useState(false);
 
     useEffect(() => {
-        fetch('https://localhost:7051/Sign')
+        fetch(`https://localhost:7051/Sign?page=${currentPage}&pageSize={itemsPerPage}`)
             .then(res => {
                 if (!res.ok) {
                     throw new Error('Network response was not ok');
@@ -30,8 +32,9 @@ function App() {
                 console.error('Fetch error:', error);
                 setIsLoading(false);
             });
-    }, []);
+    }, [currentPage, itemsPerPage]);
 
+    const totalPages = Math.ceil(signs.length / itemsPerPage);
 
     function handleSignClick(sign) {
         setSelectedSign(sign);
@@ -62,6 +65,8 @@ function App() {
                         charFilter={charFilter}
                         categoryFilter={categoryFilter}
                         onSignClick={handleSignClick}
+                        currentPage={currentPage}
+                        itemsPerPage={itemsPerPage}
                     />
             }
         </div>

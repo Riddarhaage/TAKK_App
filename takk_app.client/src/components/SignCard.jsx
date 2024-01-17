@@ -1,7 +1,5 @@
 function SignCard(props) {
-    const { signArray, searchTerm, charFilter, categoryFilter, onSignClick, currentPage, itemsPerPage } = props;
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
+    const { signArray, searchTerm, charFilter, categoryFilter, onSignClick } = props;
 
     const filteredSigns = signArray.filter(sign => {
 
@@ -26,11 +24,9 @@ function SignCard(props) {
         }
     })
 
-    const currentItems = filteredSigns.slice(startIndex, endIndex);
-
     return (
         <div className="container">
-            {currentItems.map(sign => (
+            {filteredSigns.map(sign => (
                 <div className="cards" key={sign.id} onClick={() => onSignClick(sign)}>
                     <img src={sign.imgUrl} alt={sign.title} loading="lazy" />
                     <h2 className="signTitle">{sign.title}</h2>
@@ -40,8 +36,8 @@ function SignCard(props) {
     );
 }
 
-function MeaningBuilderSignCard(props){
-    const {signArray, onSignClick} = props;
+function MeaningBuilderSignCard(props) {
+    const { signArray, onSignClick } = props;
 
     return (
         <div className="container">
@@ -57,4 +53,4 @@ function MeaningBuilderSignCard(props){
 }
 
 export default SignCard;
-export {MeaningBuilderSignCard};
+export { MeaningBuilderSignCard };

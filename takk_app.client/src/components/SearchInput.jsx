@@ -13,6 +13,8 @@ function SearchInput({ searchTerm, setSearch }) {
     return (
         <div className="search-input">
             <input
+                id="searchInput"
+                key="searchInput"
                 type="text"
                 placeholder="Sök..."
                 value={inputValue}

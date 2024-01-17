@@ -11,7 +11,7 @@ function CharacterFilter(props) {
 
     return (
         <div className="char-dropdown-container">
-            <select onChange={handleCharChange} className="dropdown">
+            <select onChange={handleCharChange} className="dropdown" id="charDropdown" key="charDropdown">
                 <option value="">Alla</option>
                 <option value="#">0-9</option>
                 {allchars.map(char => (

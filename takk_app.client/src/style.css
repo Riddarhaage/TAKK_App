@@ -17,6 +17,10 @@
     --transition: all 0.3s linear;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 body{
     font-family: 'Roboto', sans-serif;
     background-color: var(--primary-color);

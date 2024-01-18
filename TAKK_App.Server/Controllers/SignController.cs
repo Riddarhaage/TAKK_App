@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Text.RegularExpressions;
 using TAKK_App.Server.Models;
 
 namespace TAKK_App.Server.Controllers
@@ -37,7 +38,12 @@ namespace TAKK_App.Server.Controllers
         [HttpGet("get/{firstChar}")]
         public async Task<ActionResult<IEnumerable<Sign>>> GetItemsByFirstChar(string firstChar)
         {
-            return await _context.Signs.Where(s => s.Title.ToLower().StartsWith(firstChar.ToLower())).ToListAsync();
+            //TODO FIX Filtering on signs starting with a number
+            if (Regex.IsMatch(firstChar, @"^\d+$"))
+            {
+                   return await _context.Signs.Where(s => s.Title.StartsWith(firstChar)).ToListAsync();
+            }
+                return await _context.Signs.Where(s => s.Title.ToLower().StartsWith(firstChar.ToLower())).ToListAsync();
         }
 
         [HttpPut("update-description")]

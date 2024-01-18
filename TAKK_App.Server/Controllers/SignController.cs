@@ -38,13 +38,29 @@ namespace TAKK_App.Server.Controllers
         [HttpGet("get/{firstChar}")]
         public async Task<ActionResult<IEnumerable<Sign>>> GetItemsByFirstChar(string firstChar)
         {
-            //TODO FIX Filtering on signs starting with a number
-            if (Regex.IsMatch(firstChar, @"^\d+$"))
+            if (firstChar == "0-9")
             {
-                   return await _context.Signs.Where(s => s.Title.StartsWith(firstChar)).ToListAsync();
+                return await _context.Signs
+                    .Where(s => EF.Functions.Like(s.Title, "0%") ||
+                                EF.Functions.Like(s.Title, "1%") ||
+                                EF.Functions.Like(s.Title, "2%") ||
+                                EF.Functions.Like(s.Title, "3%") ||
+                                EF.Functions.Like(s.Title, "4%") ||
+                                EF.Functions.Like(s.Title, "5%") ||
+                                EF.Functions.Like(s.Title, "6%") ||
+                                EF.Functions.Like(s.Title, "7%") ||
+                                EF.Functions.Like(s.Title, "8%") ||
+                                EF.Functions.Like(s.Title, "9%"))
+                    .ToListAsync();
             }
-                return await _context.Signs.Where(s => s.Title.ToLower().StartsWith(firstChar.ToLower())).ToListAsync();
+            else
+            {
+                return await _context.Signs
+                    .Where(s => EF.Functions.Like(s.Title, firstChar + "%"))
+                    .ToListAsync();
+            }
         }
+
 
         [HttpPut("update-description")]
         public async Task<IActionResult> UpdateDescription(string title, string newDescription)

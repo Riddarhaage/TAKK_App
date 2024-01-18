@@ -31,7 +31,7 @@ namespace TAKK_App.Server.Controllers
         [HttpGet("search/{title}")]
         public async Task<ActionResult<IEnumerable<Sign>>> SearchItems(string title)
         {
-            return await _context.Signs.Where(s => s.Title.ToLower().Contains(title.ToLower())).ToListAsync();
+            return await _context.Signs.Where(s => s.Title.ToLower().StartsWith(title.ToLower())).ToListAsync();
         }
 
         [HttpGet("get/{firstChar}")]

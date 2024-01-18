@@ -14,22 +14,34 @@ function App() {
     const [showMeaningBuilder, setShowMeaningBuilder] = useState(false);
 
     useEffect(() => {
-        fetch('https://localhost:7051/Sign')
-            .then(res => {
+        const fetchSigns = async () => {
+            let url = 'https://localhost:7051/Sign';
+
+            if (charFilter) {
+                url = `https://localhost:7051/Sign/get/${charFilter}`;
+            } else if (search) {
+                url = `https://localhost:7051/Sign/search/${search}`;
+            } else if (categoryFilter.length > 0) {
+                url = `https://localhost:7051/Sign/${categoryFilter}`;
+            }
+
+            setIsLoading(true);
+            try {
+                const res = await fetch(url);
                 if (!res.ok) {
                     throw new Error('Network response was not ok');
                 }
-                return res.json();
-            })
-            .then(data => {
+                const data = await res.json();
                 setSigns(data);
-                setIsLoading(false);
-            })
-            .catch(error => {
+            } catch (error) {
                 console.error('Fetch error:', error);
+            } finally {
                 setIsLoading(false);
-            });
-    }, []);
+            }
+        };
+
+        fetchSigns();
+    }, [search, charFilter, categoryFilter]);
 
 
     function handleSignClick(sign) {
@@ -57,9 +69,6 @@ function App() {
                     <MeaningBuilder signArray={signs} onSignClick={handleSignClick} /> :
                     <SignCard
                         signArray={signs}
-                        searchTerm={search}
-                        charFilter={charFilter}
-                        categoryFilter={categoryFilter}
                         onSignClick={handleSignClick}
                     />
             }

@@ -38,7 +38,7 @@ function Header(props) {
                 </div>
             </div>
             <div className="right-container">
-                {windowWidth <= 810 ? 
+                {windowWidth <= 830 ? 
                     <Hamburger className="hamburger" rounded size={24} duration={0.2} /> :
                     <>
                         {!showMeaningBuilder ? <HeaderMenuItem text="Bygg Mening" onClick={() => setShowMeaningBuilder(true)} /> :

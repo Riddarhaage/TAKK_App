@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import '../style.css';
 import SignCard from './SignCard';
 import Header from './Header';
 import DescriptionCard from './DescriptionCard';

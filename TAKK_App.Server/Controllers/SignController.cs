@@ -22,17 +22,22 @@ namespace TAKK_App.Server.Controllers
             return await _context.Signs.ToListAsync();
         }
 
-        [HttpPost("upload")]
-        public async Task<IActionResult> UploadFile(IFormFile file)
+        [HttpGet("{categories}")]
+        public async Task<ActionResult<IEnumerable<Sign>>> GetItems(string categories)
         {
-            var filePath = Path.Combine("wwwroot/images", file.FileName);
+            return await _context.Signs.Where(s => s.Categories.ToLower().Contains(categories.ToLower())).ToListAsync();
+        }
 
-            using (var stream = new FileStream(filePath, FileMode.Create))
-            {
-                await file.CopyToAsync(stream);
-            }
+        [HttpGet("search/{title}")]
+        public async Task<ActionResult<IEnumerable<Sign>>> SearchItems(string title)
+        {
+            return await _context.Signs.Where(s => s.Title.ToLower().Contains(title.ToLower())).ToListAsync();
+        }
 
-            return Ok(new { filePath });
+        [HttpGet("get/{firstChar}")]
+        public async Task<ActionResult<IEnumerable<Sign>>> GetItemsByFirstChar(string firstChar)
+        {
+            return await _context.Signs.Where(s => s.Title.ToLower().StartsWith(firstChar.ToLower())).ToListAsync();
         }
 
         [HttpPut("update-description")]
@@ -53,6 +58,20 @@ namespace TAKK_App.Server.Controllers
 
             return Ok("Description updated successfully.");
         }
+
+        [HttpPost("upload")]
+        public async Task<IActionResult> UploadFile(IFormFile file)
+        {
+            var filePath = Path.Combine("wwwroot/images", file.FileName);
+
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
+            return Ok(new { filePath });
+        }
+
 
 
 

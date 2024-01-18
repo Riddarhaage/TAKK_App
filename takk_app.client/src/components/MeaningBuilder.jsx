@@ -50,6 +50,8 @@ function MeaningBuilder(props) {
             <h1>Bygg en mening</h1>
             <input
                 className='meaning-input'
+                id="meaning-input"
+                key="meaning-input"
                 type="text"
                 placeholder="Skriv en mening..."
                 value={meaning}
